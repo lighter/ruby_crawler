@@ -1,0 +1,12 @@
+version: '3'
+services:
+    db:
+        image: postgres:latest
+    ruby:
+        build: ./ruby/
+        volumes:
+            - ./code:/code
+        links:
+            - db
+        depends_on:
+            - db
